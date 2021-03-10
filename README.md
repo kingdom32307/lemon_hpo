@@ -38,7 +38,7 @@ bash ./get_datasets.sh
 ### 3. write shell file
 `bash`ディレクトリ内にshellファイルを作成する．
 ```
-python nm_main.py -fuc wrn -ini 1 -eva 50 -dat lemon -cls 4 -eexp ResNet50 -exp 0 -res 1 -epch 200 -mtra ResNet50 -opt sgd
+python nm_main.py -fuc wrn -ini 1 -eva 50 -dat lemon -cls 4 -eexp ResNet50 -exp 0 -res 1 -epch 200 -mtra ResNet50 -opt sgd -gcam 1
 ```
 
 パラメータの説明
@@ -47,8 +47,9 @@ python nm_main.py -fuc wrn -ini 1 -eva 50 -dat lemon -cls 4 -eexp ResNet50 -exp 
 - `eva` (int): The maximum number of evaluations in an experiment. If eva = 100, 100 configurations will be evaluated.
 - `dat` (str): The name of dataset.
 - `epch` (int): The number of epochs
-- `mtra`: The model of Transfer
-- `opt`: The optimizer of Training, only availalbe SGD, ADAM, SAM
+- `mtra` (str): The model of Transfer, default is ResNet50
+- `opt` (str): The optimizer of Training, only availalbe SGD, ADAM, SAM, default is SGD
+- `gcam` (int): Whether turn on GradCam or not, if 1 is using GradCam, default is 0
 
 ### 4. training
 作成したshellファイルを指定して実行する．
